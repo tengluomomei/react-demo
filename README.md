@@ -41,6 +41,22 @@
 # 函数组件
     以 use 开头的函数被称为 Hook，通过hookapi可以定义状态
 
+# 路由
+    最新： https://reactrouter.com/en/main
+    v5: https://v5.reactrouter.com/web/guides/quick-start
+    安装： npm install react-router-dom
+
+    路由相关的有三个包：
+        react-router 路由核心包
+        react-router-dom 基于浏览器的路由包，专用于做web开发
+        react-router-native 基于RN平台的路由包，专用于原生APP开发
+
+    router组件（BrowserRouter 、 HashRouter）
+    路由匹配组件（Routes 、 Route）:要配合使用，且必须要用<Routes>包裹<Route>
+
+    path属性:用于定义路径
+    element属性: 用于定义当前路径所对应的组件
+
 # jsx
     jsx = javascript + xml，是facebooK发明的语法，浏览器是不认识这种语法的，需要利用babel编译成浏览器可以识别的语法
 
@@ -79,7 +95,7 @@
         7.行间样式：style={ { key1:'value1', key2:'value2',... } } 属性值式对象，对象是js代码，需要放到{}中
         8.class类名:
         9.React组件（由class或function定义）的名称必须以大写字母开头
-        10.支持点语法
+        10.支持点语法 
         11.在使用组件时，如果组件使用双标签，在双标签之间就可以写内容，在双标签之间写的内容是通过props.children来接收的
         12.使用JSX时，如果是数组，可以直接渲染，如果数组中有boolean值，有null，有und，会被直接忽略
 
