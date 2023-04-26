@@ -100,6 +100,7 @@
         12.使用JSX时，如果是数组，可以直接渲染，如果数组中有boolean值，有null，有und，会被直接忽略
 
 # 状态
+    // 
     state: this.state
     修改状态：
         this.setState({}, callback) 在修改状态时，当新值与旧值无关时，推荐使用这种写法，callback表示当状态修改后，有一些业务逻辑放到callback中。
@@ -107,15 +108,16 @@
 
     状态在函数组件中的使用：
 
-# 修改状态的同步和异步
+# 修改状态的同步和异步  16.8
     React18之前，setState写在宏任务中，或Promise.then中，它是同步的。
     React18之前，setSteate写在合成事件中，是异步的。
     React18中，不管setState写在哪里，永远都是异步的。
     this.setState会自动合并
 
 # 事件绑定
-    1.bind
-    2.箭头函数
+    1.bind： this.addFun.bind(this)
+    2.箭头函数 （）=>{this.addFun}
+    3.constructor: this.addFun = this.addFun.bind(this)
 
 # 条件渲染
     1.类组件中实现条件渲染
