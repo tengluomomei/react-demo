@@ -133,7 +133,7 @@
     for循环、数组map() 函数
     注意：key属性，在其兄弟节点中唯一标识该元素
 
-# 生命周期(非常重要)
+# 生命周期(非常重要) https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
     装载阶段（3个）：constructor, render, componentDidMount
     更新阶段（2个）：render，componentDidUpdate
     卸载阶段（1个）：componentWillUnmount

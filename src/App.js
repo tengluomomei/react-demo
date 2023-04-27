@@ -4,6 +4,7 @@ import Demo3 from './pages/jsx/Demo3'
 import Demo4 from './pages/jsx/Demo4'
 import Demo5 from './pages/jsx/Demo5'
 import Demo6 from './pages/jsx/Demo6'
+import Demo7 from './pages/jsx/Demo7'
 import {HashRouter,Route, Routes, Link} from 'react-router-dom'
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='demo4' element={<Demo4/>}></Route>
           <Route path='demo5' element={<Demo5/>}></Route>
           <Route path='demo6' element={<Demo6/>}></Route>
+          <Route path='demo7' element={<Demo7/>}></Route>
         </Routes>
       </HashRouter>
       {/* <DemoA a='abc'></DemoA>
