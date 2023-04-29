@@ -173,6 +173,40 @@
     如果是函数，函数分两类，一类叫事件函数(on)，另一类叫渲染函数,不要使用on开头。
 
 
+# 封装组件
+    UI组件库：https://ant.design/index-cn
+    prop-types:给组件传递非常多的数据，需要对数据进行校验
+    Modal.propTypes = {
+        title: PropTypes.number, // 期待传递的title是一个number类型
+        title: PropTypes.string, // 期待传递的title是一个string类型
+        title: PropsTypes.bool, // 期待传递的title是一个bool类型
+        title: PropsTypes.elementType, // React元素类型 = jsx, string, null, und
+        title: PropsTypes.string.isRequired, // 期待传递的title是一个string类型,并且是必传项
+        title: PropTypes.number.isRequired, // 期待传递的title是一个number类型,并且是必传项
+        title: PropTypes.func, // 期待传递的title是一个函数类型
+        title: PropTypes.array, // 期待传递的title是一个数组类型
+        title: PropTypes.oneOf(['primary', 'danger', 'info']), // 期待传递的title是数组中其中一个
+        // 期待传递的title是number或bool
+        title: PropTypes.oneOfType([PropTypes.number, PropsTypes.bool]),
+        title: PropTypes.node, // 期待传递的title是jsx, string, number, und, null, bool
+    }
+
+    // 非必传项，需要提供默认值
+    Modal.defaultProps = {
+        title: "默认小标题",
+        closable: true
+    }
+
+    什么是组合？
+        组合是React组件化的设计模式,研究如何封装一个组件，步骤如下：
+        第一步：根据UI设计图拆解组件。
+        第二步：把这个独立的组件单独进行封装。
+        第三步：利用props把组件串联起来。
+
+    {...props}: props穿透
+
+
+
 
 
 
