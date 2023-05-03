@@ -205,6 +205,108 @@
 
     {...props}: props穿透
 
+# 上下文（类组件才有）
+    React中，利用上下文，进行组件间的通信,类似于Vue中的proveder/inject
+    特点：
+        在组件树中，上下文中一种单向数据流通信，不能颠倒。
+        通信是可以跨级的，祖先提供数据，后代消费数据。
+        这个通过方法，不具有响应式。
+    使用步骤：
+        1.创建const ThemeContent = React.createContext()创建上下文, 
+        2.使用Provider提供数据，是给后代提供数据
+        3.消费上下文中的数据有两种方案
+            a.this.context: Child.contextType = ThemeContent
+            b.<Consumer>{
+                (ctx){
+                    return(
+                        jsx....
+                    )
+                }
+            }</Consumer>
+
+# React中的组件通信：
+    1.状态提升（父传子，子传父），核心靠props
+    2.上下文，是祖先与后代之间的通信，父子关系不需要明确
+    3.props穿透，需要搞清楚父子关系，缺点：会让后代的props变得多而繁琐
+
+# hook
+    hook是React官方提供的API，在V16.8中新增的， 类似于Vue3中的组合式API。
+    作用：用于在函数式组件中模拟出类组件的功能。如：state，生命周期，ref，上下文...
+    如：useState, useEffect, useLayoutEffect，useContext, userReducer, useRef, useMemo, useCallback..
+
+    1.useState：
+        a.使用const定义
+        b.用数组解构，而不是对象
+        c.执行过程：当调用setNum,会触发整个函数的重新执行，生成新的Filer树，新老Filer树进行协调运算，进行commit提交更新DOM。
+        数据存储在react内部的数据结构底层里。
+        4.修改状态是异步的（v18.0中）
+    
+    2.useEffect：
+        是用来模拟类组件中的生命周期的，不是模拟所有的生命周期，是模拟这三个componentDidMount/componentDidUpdate/componentWillUnmount生命周期。
+        useEffect(() => {
+            // fn1中写副作用
+            return ()=>{
+                // fn2中清除副作用
+            }
+        }, [依赖数组])
+
+        注意点：
+            当没有“依赖数组”这个参数时，初始化只执行fn1，当re-render时，先执行fn2，再执行fn1。当路由切换时，只执行fn2。
+            当有“依赖数组”这个参数时，但是是一个空数组，初始化只执行fn1，当re-render时，什么也不执行。当路由切换时，只执行fn2。
+            当有“依赖数组”这个参数时，但不是一个空数组，初始化只执行fn1。有且仅有当“依赖数组"中的变量发生变化导致re-render时，先执行fn2，再执行fn1()。当路由切换时，只执行fn2。
+                fn1相当于类组件中的componentDidMount
+                fn2相当于类组件中的componentWillUnMount
+                依赖数组，相当于类组件中的componentDidUpdate
+
+            useEffect是用来执行副作用，建议一个useEffect只执行一个副作用,不要在同一个useEffect中同时执行多个副作用。
+            在函数式组件中，不要把副作用直接暴露在函数体内，一定要使用useEffect进行控制.
+
+    3.useLayoutEffect
+        运行机制和useEffect是一样的，区别在于useLayoutEffect执行时候更早.
+
+    4.useContext
+        函数式组件中是没有上下文的，使用useContext，就可以在函数式组件中使用上下文.
+        两种写法：
+            1.const {Provider, Consumer} = myContext（不优雅）
+            2.const ctx = useContext(myContext)
+
+    5.ref与ref转化
+        this.refs.xx:
+        在类组件中，如果ref写在DOM元素上，是为了获取DOM元素，进而操作DOM元素。
+        如果ref写在类组件标签上，是为了获取组件实例,进而实现组件的通信。
+        如果ref写在函数组件标签上，会报错。需要使用ref转发，转发到了函数式组件中的JSX中的DOM标签上,进而获取函数式组件中的JSX中的DOM元素。
+
+
+    6.useRef
+        xx.current:
+    
+    7.useMemo
+        用于性能优化，用于把一些比较消耗性能的计算进行缓存，类似于vue中的计算属性。
+        const total = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+
+    8.useCallback: 缓存函数申明
+
+# 项目实战
+    1.路由
+    2.antd的使用：
+        1.npm install antd -s
+        2.App.js引入import 'antd/dist/reset.css';
+        3.字体图标： npm install --save @ant-design/icons
+    3.搭建首页面
+    4.侧边栏菜单生成
+        自定义hook: 以use开头，在函数组件内，写在return之前
+    5.实现面包屑
+
+    
+
+
+
+
+
+
+
+
+
 
 
 
