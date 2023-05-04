@@ -293,10 +293,34 @@
         2.App.js引入import 'antd/dist/reset.css';
         3.字体图标： npm install --save @ant-design/icons
     3.搭建首页面
+        a.路由出口： <Outlet/>
+        b.动态生成左侧导航
+        c.把APP.js中的路由配置替换成动态
+        d.左侧导航默认选中和展开
     4.侧边栏菜单生成
         自定义hook: 以use开头，在函数组件内，写在return之前
-    5.实现面包屑
 
+
+        
+    5.实现面包屑
+    6.集成Redux
+        类似于vuex和pinia，用来集中状态管理的，需要使用到的依赖：
+
+        经典架构：redux + react + react-redux + redux-thunk + immer
+        最新架构：@reduxjs/toolkit + react + react-redux +ts
+
+        安装redux:npm install redux -S
+        安装immer:
+        安装react-redux:
+
+        store:
+            dispatch:用于修改仓库中的状态
+            getState:获取仓库中的状态
+            subscribe:订阅
+
+        谷歌安装：chrome Redux-DevTools 
+            1.创建store配置：createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+            2.redux-logger： logger是一个中间件，要使用中间件, createStore(reducer, applyMiddleware(logger))
     
 
 
