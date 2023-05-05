@@ -339,6 +339,8 @@
                 dispatch = useDispatch()
                 dispatch(action)
                 action是一个对象，对象中有一个type和payload
+            4.action生成器
+            
         store:
             dispatch:用于修改仓库中的状态
             getState:获取仓库中的状态

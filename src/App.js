@@ -5,6 +5,10 @@ import Login from './pages/login/index'
 import {HashRouter,Route, Routes} from 'react-router-dom'
 import {asyncRoutes} from './routes/index'
 
+import {Provider} from 'react-redux'
+import store from './store/index'
+
+
 function createRoutes(asyncRoutes){
   let result = []
   asyncRoutes.forEach(route => {
@@ -30,16 +34,18 @@ function App() {
   return (
     <div className="App">
       <HashRouter> 
-        <Routes>
-          <Route path='/' element={<Layout/>}>
-            {/* <Route path='/dashboard' element={<Dashboard/>}></Route>
-            <Route path='/good/list' element={<GoodList/>}></Route>
-            <Route path='/good/add' element={<GoodForm/>}></Route>
-            <Route path='/user' element={<User/>}></Route> */}
-            {createRoutes(asyncRoutes)}
-          </Route>
-          <Route path='/login' element={<Login/>}></Route>
-        </Routes>
+        <Provider store={store}>
+          <Routes>
+            <Route path='/' element={<Layout/>}>
+              {/* <Route path='/dashboard' element={<Dashboard/>}></Route>
+              <Route path='/good/list' element={<GoodList/>}></Route>
+              <Route path='/good/add' element={<GoodForm/>}></Route>
+              <Route path='/user' element={<User/>}></Route> */}
+              {createRoutes(asyncRoutes)}
+            </Route>
+            <Route path='/login' element={<Login/>}></Route>
+          </Routes>
+        </Provider>
       </HashRouter>
     </div>
   );
