@@ -2,7 +2,6 @@ import {
     FontSizeOutlined,
   } from '@ant-design/icons';
 import { Col, Row, Breadcrumb } from 'antd';
-import {asyncRoutes} from '../../routes/index'
 import {Link, useNavigate} from 'react-router-dom'
 import useBread from './useBread'
 

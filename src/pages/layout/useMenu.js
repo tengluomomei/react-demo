@@ -1,5 +1,5 @@
 import {useLocation} from 'react-router-dom'
-import {asyncRoutes} from '../../routes/index'
+import {asyncRoutes} from '@/routes/index'
 import {useMemo} from 'react'
 
 function useMenu(){

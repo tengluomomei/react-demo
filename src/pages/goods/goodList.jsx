@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux'
-import {switchAdd,switchSub } from '../../store/actions'
+import {switchAdd,switchSub } from '@/store/actions'
 
 function Goods(){
     // let size = useSelector(function(state){

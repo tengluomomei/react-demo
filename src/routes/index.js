@@ -5,10 +5,10 @@ import {
   } from '@ant-design/icons';
 
 //路由表
-import Dashboard from "../pages/dashboard/index"
-import GoodList from "../pages/goods/goodList"
-import GoodForm from "../pages/goods/goodForm"
-import User from "../pages/user/index"
+import Dashboard from "@/pages/dashboard/index"
+import GoodList from "@/pages/goods/goodList"
+import GoodForm from "@/pages/goods/goodForm"
+import User from "@/pages/user/index"
 
 export const asyncRoutes = [
     {

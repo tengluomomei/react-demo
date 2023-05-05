@@ -1,12 +1,12 @@
 import 'antd/dist/reset.css';
-import Layout from './pages/layout/index'
-import Login from './pages/login/index'
+import Layout from '@/pages/layout/index'
+import Login from '@/pages/login/index'
 
 import {HashRouter,Route, Routes} from 'react-router-dom'
 import {asyncRoutes} from './routes/index'
 
 import {Provider} from 'react-redux'
-import store from './store/index'
+import store from '@/store/index'
 
 
 function createRoutes(asyncRoutes){
