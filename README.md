@@ -7,7 +7,8 @@
         全局安装：npm install -g create-react-app  create-react-app --version 查看版本
         创建项目：create-react-app xxx 
     2.npx create-react-app xxx    
-    chrome:安装React Developer Tools
+        chrome:安装React Developer Tools
+
 
 # 项目结构
     public ---- 静态资源文件夹
@@ -28,6 +29,12 @@
             --- 页面性能分析文件(需要web-vitals库的支持)
         setupTests.js
             ---- 组件单元测试的文件(需要jest-dom库的支持)
+
+    2.webpack配置：
+        npm run eject
+        alias: {
+            '@': path.resolve('src'), // 增加这里
+        }
 
 
 # 类组件
@@ -303,6 +310,10 @@
 
         
     5.实现面包屑
+        a.引入面包屑组件
+        b.根据路由，动态生成面包屑
+        c.点击跳转：申明式导航Link、编程式导航： useNavigate 
+
     6.集成Redux
         类似于vuex和pinia，用来集中状态管理的，需要使用到的依赖：
 
@@ -313,6 +324,21 @@
         安装immer:
         安装react-redux:
 
+        三个API： createStore / combineReducers / applyMiddleware
+        三个特点：store必须是单 一数据源 / store中的状态是只读 / store中的数据只能通过reducer来修改
+        三个概念：store是数据仓库， action(用于改变数据的对象{type: 信号，payload})，reducer（专门用来修改状态）
+        修改store操作流程：
+            1.当信号到达时，对state进行深拷贝
+            2.根据action中的type和payload对老的state进行操作
+            3.返回修改后最新的state
+
+        使用：
+            1.在App.jsx中，使用Provider提供store，
+            2.在组件中获取仓库中的状态： useSelector
+            3.修改仓库中的状态：
+                dispatch = useDispatch()
+                dispatch(action)
+                action是一个对象，对象中有一个type和payload
         store:
             dispatch:用于修改仓库中的状态
             getState:获取仓库中的状态
@@ -321,6 +347,11 @@
         谷歌安装：chrome Redux-DevTools 
             1.创建store配置：createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
             2.redux-logger： logger是一个中间件，要使用中间件, createStore(reducer, applyMiddleware(logger))
+
+    7.组件大小的全局切换
+        a.Dropdown组件添加
+        b.点击large，middle，small，改变仓库中的size的大小
+        c.抽离action，多个复用
     
 
 

@@ -8,6 +8,7 @@ import {
   import { Outlet } from 'react-router-dom';
 
   import Mysider from './Mysider'
+  import MyHeader from './MyHeader'
   const { Header, Sider, Content } = Layout;
 
 
@@ -38,6 +39,7 @@ function LayoutPage(){
                             color: '#fff'
                         }}
                     />
+                    <MyHeader></MyHeader>
                     </Header>
                     <Content
                     style={{
