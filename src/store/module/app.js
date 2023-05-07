@@ -2,7 +2,7 @@ import {produce} from 'immer'
 // const newData = produce(oldState, (newState) =>{})
 
 const initState = {
-    size: 1
+    size: 'middle'
 }
 
 function reducer(state = initState, action){
@@ -25,6 +25,10 @@ function reducer(state = initState, action){
             case "APP_SIZE_SUB":
                     newState.size -= action.payload 
                     break
+            case "APP_SIZE":
+                newState.size = action.payload 
+                console.log(newState.size)
+                break
             default:
         }
 

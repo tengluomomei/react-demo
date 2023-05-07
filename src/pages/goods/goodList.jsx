@@ -1,5 +1,6 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {switchAdd,switchSub } from '@/store/actions'
+import { Button } from 'antd';
 
 function Goods(){
     // let size = useSelector(function(state){
@@ -26,6 +27,7 @@ function Goods(){
             <p>{size}</p>
             <button onClick={addFun}>+1</button>
             <button onClick={addSub}>-1</button>
+            <Button type="primary">Primary Button</Button>
         </div>
     )
 }

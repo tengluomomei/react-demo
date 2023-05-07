@@ -10,18 +10,26 @@ import GoodList from "@/pages/goods/goodList"
 import GoodForm from "@/pages/goods/goodForm"
 import User from "@/pages/user/index"
 
+// 37: 管理员
+// 327:普通用户
 export const asyncRoutes = [
     {
         key: 1001,
         path: "/dashboard",
         label: "首页大屏",
         icon: <MenuFoldOutlined />,
-        element: <Dashboard />
+        element: <Dashboard />,
+        meta:{
+            roles: ['37','327']
+        }
     },
     {
         key: 1002,
         icon: <VideoCameraOutlined />,
         label: "商品管理",
+        meta:{
+            roles: ['37','327']
+        },
         children: [
             {
                 key: 100201,
@@ -52,6 +60,9 @@ export const asyncRoutes = [
         path: "/user",
         element: <User />,
         icon: <UserOutlined />,
-        label: "用户管理"
+        label: "用户管理",
+        meta:{
+            roles: ['37']
+        }
     }
 ];

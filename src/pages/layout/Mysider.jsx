@@ -1,6 +1,6 @@
-import {  Menu } from 'antd';
-import {asyncRoutes} from '../../routes/index'
+import { Menu } from 'antd';
 import {Link} from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 // 使用自定义hook
 import useMenu from './useMenu'
@@ -32,6 +32,8 @@ function getItem(label, key, icon, children, path) {
 
 function Mysider(props){
     const [selectedKey, openKey] = useMenu()
+    const {accessRoutes} = useSelector(state => state.user)
+
     return (
         <div className=''>
             <div className="logo"><img src={'https://www.baidu.com/img/flexible/logo/pc/result.png'} alt=''/></div>
@@ -40,7 +42,7 @@ function Mysider(props){
                 mode="inline"
                 defaultSelectedKeys={selectedKey}
                 defaultOpenKeys={openKey}
-                items={createItems(asyncRoutes)}
+                items={createItems(accessRoutes)}
                 />   
         </div>
     )
